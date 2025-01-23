@@ -115,6 +115,7 @@ export default function AllCourses() {
           width: 345,
           height: 600,
           borderRadius: 3,
+          margin: 'auto',
         }}
       >
         {imageENV && item?.image && (

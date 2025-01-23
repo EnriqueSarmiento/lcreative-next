@@ -111,10 +111,11 @@ export default function AllMentorings() {
       <Card
         key={item?.key}
         sx={{
-          padding2: 2,
+          padding: 2,
           width: 345,
           height: 600,
           borderRadius: 3,
+          margin: 'auto',
         }}
       >
         {imageENV && item?.mentor?.avatar && (
