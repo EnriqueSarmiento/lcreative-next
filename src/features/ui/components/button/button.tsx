@@ -51,7 +51,8 @@ const ButtonComponent: FC<ButtonPropsComponent> = ({
       textTransform: 'capitalize',
       width: 'auto',
     };
-    const containedClasses: any = {
+
+    const containedClasses = {
       backgroundColor: `${palette.main} !important`,
       '&:hover': {
         backgroundColor: `${palette.dark} !important`,
@@ -107,7 +108,7 @@ const ButtonComponent: FC<ButtonPropsComponent> = ({
       ...theme,
       ...baseStyles,
       ...variantClasses,
-    };
+    } as Record<string, unknown>;
   });
 
   return (
