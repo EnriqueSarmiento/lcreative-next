@@ -117,7 +117,7 @@ export default function AllMentorings() {
           borderRadius: 3,
         }}
       >
-        {imageENV && item?.image && (
+        {imageENV && item?.mentor?.avatar && (
           <CardMedia
             component="img"
             alt={item?.name}

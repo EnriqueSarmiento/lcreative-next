@@ -2,6 +2,14 @@ export interface MentoringResponse {
   data: Data;
 }
 
+export interface DetailMentoringResponse {
+  data: MentoringData;
+}
+
+export interface MentoringData {
+  mentoring: Mentoring;
+}
+
 export interface Data {
   mentorings: Mentoring[];
   totalMentorings: number;
@@ -33,8 +41,8 @@ export interface Characteristic {
   description: string;
   icon: string;
   isActive: boolean;
-  nanme?: string;
   name?: string;
+  nanme?: string;
 }
 
 export interface Mentor {

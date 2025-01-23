@@ -1,8 +1,13 @@
 import { HttpClient } from '@/http-client';
-import { MentoringResponse } from './entities';
+import { DetailMentoringResponse, MentoringResponse } from './entities';
 
 export const mentoringService = {
   getAll() {
     return HttpClient.get<MentoringResponse>('/mentorings/all');
+  },
+  getOne(key: string) {
+    return HttpClient.get<DetailMentoringResponse>(
+      `/mentorings/show?pKey=${key}`,
+    );
   },
 };
