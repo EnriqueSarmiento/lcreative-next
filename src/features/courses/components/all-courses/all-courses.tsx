@@ -1,8 +1,9 @@
 import LandingSection from '@/features/ui/components/landing-section/landing-section';
-import { useCallback, useMemo, useState } from 'react';
-import { Mentoring } from '../../entities';
-import { mentoringService } from '../../mentoring.service';
 import { ErrorState } from '@/types/general';
+import { useRouter } from 'next/router';
+import { useCallback, useMemo, useState } from 'react';
+import { Course } from '../../entities';
+import { coursesService } from '../../courses.service';
 import {
   Card,
   CardActions,
@@ -11,21 +12,20 @@ import {
   Skeleton,
   Typography,
 } from '@mui/material';
-import { useRouter } from 'next/router';
+import { ErrorOutline } from '@mui/icons-material';
 import { Button } from '@/features/ui/components';
-import ErrorOutline from '@mui/icons-material/ErrorOutline';
 
 const imageENV = process.env.NEXT_PUBLIC_IMAGE_BASE_URL ?? null;
 
-export default function AllMentorings() {
+export default function AllCourses() {
   const router = useRouter();
   const [isFetching, setIsFetching] = useState<boolean>(false);
   const [error, setError] = useState<ErrorState>({ show: false, message: '' });
 
-  const [mentorings, setMentorings] = useState<Mentoring[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
 
   const getAll = useCallback(async () => {
-    if (mentorings.length) {
+    if (courses.length) {
       return;
     }
     setIsFetching(true);
@@ -33,17 +33,17 @@ export default function AllMentorings() {
     try {
       const {
         data: { data },
-      } = await mentoringService.getAll();
-      setMentorings(data?.mentorings ?? []);
+      } = await coursesService.getAll();
+      setCourses(data?.items ?? []);
     } catch {
-      setError({ show: true, message: 'Error mostrando las mentorias' });
+      setError({ show: true, message: 'Error mostrando los cursos' });
     } finally {
       setIsFetching(false);
     }
-  }, [mentorings]);
+  }, [courses]);
 
   useMemo(() => {
-    console.log('USE MEMO MENTORING');
+    console.log('USE MEMO COURSES');
     getAll();
   }, []);
 
@@ -107,7 +107,7 @@ export default function AllMentorings() {
       );
     }
 
-    return mentorings.map((item) => (
+    return courses.map((item) => (
       <Card
         key={item?.key}
         sx={{
@@ -121,7 +121,7 @@ export default function AllMentorings() {
           <CardMedia
             component="img"
             alt={item?.name}
-            image={`${imageENV}/${item?.mentor?.avatar}`}
+            image={`${imageENV}/${item?.image}`}
             sx={{
               height: 250,
               width: '100%',
@@ -143,30 +143,21 @@ export default function AllMentorings() {
             component="div"
             className="select-none"
           >
-            {item?.mentor?.name}
-          </Typography>
-          <Typography
-            gutterBottom
-            variant="caption"
-            component="div"
-            className="select-none"
-            color="info"
-          >
-            Mentor en: {item?.name}
+            {item?.name}
           </Typography>
           <Typography
             variant="body2"
-            sx={{ wordBreak: 'break-word', mt: 2 }}
+            sx={{ wordBreak: 'break-word' }}
             textAlign={'left'}
             className="select-none"
           >
-            {item?.title}
+            {item?.description}
           </Typography>
         </CardContent>
         <CardActions>
           <Button
             text="Mas informacion"
-            onClick={() => router.push(`/mentoring/${item?.key}`)}
+            onClick={() => router.push(`/courses/${item?.key}`)}
             labelProps={{
               labelClasses: {
                 textTransform: 'capitalize',
@@ -180,10 +171,9 @@ export default function AllMentorings() {
         </CardActions>
       </Card>
     ));
-  }, [isFetching, mentorings, error, router]);
-
+  }, [isFetching, courses, error, router]);
   return (
-    <LandingSection title="Mentorias" id="#mentoring">
+    <LandingSection title="Cursos" id="#courses">
       <div className="flex flex-row flex-wrap gap-4 items-center justify-between mt-10 md:px-20 w-full md:w-[70%] m-auto">
         {renderCallback}
       </div>
