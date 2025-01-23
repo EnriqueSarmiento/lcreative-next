@@ -1,1 +1,1 @@
-export * from "./head.interceptor";
+export * from './head.interceptor';

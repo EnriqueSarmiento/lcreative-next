@@ -1,7 +1,12 @@
-import { BaseLayout, NextPageWithLayout } from "@/features/ui/layouts";
+import { AllMentorings } from '@/features/mentoring/components';
+import { BaseLayout, NextPageWithLayout } from '@/features/ui/layouts';
 
 const IndexPage: NextPageWithLayout = () => {
-	return <div className="bg-green-400 self-center">LA PAGINA DE INDEX</div>;
+  return (
+    <div className="w-full h-full self-center">
+      <AllMentorings />
+    </div>
+  );
 };
 
 IndexPage.layout = BaseLayout;
