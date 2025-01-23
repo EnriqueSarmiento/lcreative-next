@@ -21,6 +21,17 @@
       "static/chunks/src_pages_index_5771e1._.js",
       "static/chunks/src_pages_index_eef132._.js"
     ],
+    "/courses/[id]": [
+      "static/chunks/node_modules_next_0652b4._.js",
+      "static/chunks/node_modules_react-dom_82bb97._.js",
+      "static/chunks/node_modules_axios_c6bd23._.js",
+      "static/chunks/node_modules_@mui_material_b64961._.js",
+      "static/chunks/node_modules_@mui_system_esm_66425d._.js",
+      "static/chunks/node_modules_437c15._.js",
+      "static/chunks/[root of the server]__3e3383._.js",
+      "static/chunks/src_pages_courses_[id]_index_tsx_5771e1._.js",
+      "static/chunks/src_pages_courses_[id]_index_tsx_57fbbd._.js"
+    ],
     "/mentoring/[id]": [
       "static/chunks/node_modules_next_0652b4._.js",
       "static/chunks/node_modules_react-dom_82bb97._.js",
@@ -31,6 +42,14 @@
       "static/chunks/[root of the server]__b0a0c9._.js",
       "static/chunks/src_pages_mentoring_[id]_index_tsx_5771e1._.js",
       "static/chunks/src_pages_mentoring_[id]_index_tsx_4f51f1._.js"
+    ],
+    "/_error": [
+      "static/chunks/[root of the server]__31723f._.js",
+      "static/chunks/node_modules_react-dom_82bb97._.js",
+      "static/chunks/node_modules_beb007._.js",
+      "static/chunks/[root of the server]__e5d775._.js",
+      "static/chunks/src_pages__error_5771e1._.js",
+      "static/chunks/src_pages__error_ba917a._.js"
     ]
   },
   "devFiles": [],

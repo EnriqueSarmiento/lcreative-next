@@ -147,8 +147,9 @@ const DetailMentoring: NextPageWithLayout = () => {
               sx={{
                 padding2: 2,
                 width: 345,
-                height: 500,
+                height: 650,
                 borderRadius: 3,
+                margin: 'auto',
               }}
             >
               {imageENV && item?.mentor?.avatar && (
